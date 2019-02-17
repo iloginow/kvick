@@ -1,0 +1,41 @@
+{
+  "name": "kvick",
+  "version": "0.0.1",
+  "description": "A forward-looking, performance oriented JavaScript library for building user interfaces.",
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iloginow/kvick.git"
+  },
+  "keywords": [
+    "kvick",
+    "javascript",
+    "typescript",
+    "frontend",
+    "framework"
+  ],
+  "author": "Ilia Loginov <i.loginow@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iloginow/kvick/issues"
+  },
+  "homepage": "https://github.com/iloginow/kvick#readme",
+  "devDependencies": {
+    "ava": "^1.2.1",
+    "nyc": "^13.3.0",
+    "tslint": "^5.12.1",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.3.3"
+  },
+  "ava": {
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  }
+}
