@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "description": "A forward-looking, performance oriented JavaScript library for building user interfaces.",
   "scripts": {
+    "dev": "node scripts/dev",
+    "build": "node scripts/build",
     "test": "ava"
   },
   "repository": {
@@ -23,19 +25,22 @@
   },
   "homepage": "https://github.com/iloginow/kvick#readme",
   "devDependencies": {
+    "@types/node": "^11.9.4",
     "ava": "^1.2.1",
+    "awesome-typescript-loader": "^5.2.1",
     "nyc": "^13.3.0",
+    "rollup": "^1.2.2",
+    "rollup-plugin-typescript2": "^0.19.2",
     "tslint": "^5.12.1",
     "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.3.3"
   },
+  "dependencies": {
+    "@types/mocha": "^5.2.6"
+  },
   "ava": {
-    "compileEnhancements": false,
-    "extensions": [
-      "ts"
-    ],
-    "require": [
-      "ts-node/register"
+    "sources": [
+      "dist/*"
     ]
   }
 }
