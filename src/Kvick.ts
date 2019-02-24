@@ -1,9 +1,9 @@
 import Component from './Component';
 
-export class Kvick {
+export default class Kvick {
   Component: typeof Component;
 
-  constructor () {
+  constructor() {
     this.Component = Component;
     console.log('Hello from Kvick');
   }
