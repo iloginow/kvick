@@ -27,13 +27,15 @@
   "devDependencies": {
     "@types/node": "^11.9.4",
     "ava": "^1.2.1",
-    "awesome-typescript-loader": "^5.2.1",
+    "chalk": "^2.4.2",
     "nyc": "^13.3.0",
+    "ora": "^3.1.0",
     "rollup": "^1.2.2",
     "rollup-plugin-typescript2": "^0.19.2",
+    "terser": "^3.16.1",
     "tslint": "^5.12.1",
-    "tslint-config-airbnb": "^5.11.1",
-    "typescript": "^3.3.3"
+    "typescript": "^3.3.3",
+    "zlib": "^1.0.5"
   },
   "dependencies": {
     "@types/mocha": "^5.2.6"
