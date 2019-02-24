@@ -6,7 +6,7 @@
     "tdd": "node scripts/tdd",
     "build": "node scripts/build",
     "test": "mocha -r ts-node/register test/**/*.spec.ts",
-    "test:coverage": "nyc -r lcov npm test && nyc report"
+    "test:coverage": "nyc npm test"
   },
   "repository": {
     "type": "git",
