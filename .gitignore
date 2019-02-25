@@ -12,4 +12,7 @@ node_modules
 # Misc
 *.log
 .DS_Store
+
+# nyc code coverage
 coverage
+.nyc_output
