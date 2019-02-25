@@ -3,13 +3,13 @@ const nodeWatch = require('node-watch');
 const Mocha = require('mocha');
 const tsNode = require('ts-node');
 
-const tsNodeConfig = './tsconfig.json';
+const tsConfigPath = path.resolve(__dirname, '../tsconfig.json');
 const srcPath = path.resolve(__dirname, '../src');
 const testPath = path.resolve(__dirname, '../test');
 
 try {
   tsNode.register({
-    tsNodeConfig,
+    tsConfigPath,
     transpileOnly: true,
   });
 } catch (error) {
@@ -17,8 +17,6 @@ try {
 
   process.exit(1);
 }
-
-const mocha = new Mocha();
 
 nodeWatch(srcPath, { recursive: true }, (evt, name) => {
   const affectedFile = name.replace(srcPath, '');
@@ -38,6 +36,8 @@ nodeWatch(testPath, { recursive: true }, (evt, name) => {
 });
 
 function runUnitTests(spec) {
+  const mocha = new Mocha();
+
   mocha.addFile(spec);
   mocha.run(() => {
     mocha.unloadFiles();
