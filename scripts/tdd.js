@@ -19,7 +19,7 @@ try {
   process.exit(1);
 }
 
-waitingMessage();
+showMessage('Waiting for changes...');
 
 nodeWatch(srcPath, { recursive: true }, (evt, name) => {
   const affectedFile = name.replace(srcPath, '');
@@ -43,11 +43,21 @@ function runUnitTests(spec) {
 
   clear();
 
-  mocha.addFile(spec);
-  mocha.run(() => {
-    mocha.unloadFiles();
-    waitingMessage();
-  });
+  try {
+    mocha.addFile(spec);
+    mocha.run(() => {
+      mocha.unloadFiles();
+      showMessage('Waiting for changes...');
+    });
+  } catch (error) {
+    if (error.code === 'MODULE_NOT_FOUND') {
+      showMessage('Corresponding spec file not found!');
+      showMessage('Waiting for changes...');
+    } else {
+      showMessage('Error while trying to execute test suite!');
+      showMessage('Waiting for changes...');
+    }
+  }
 }
 
 function clear() {
@@ -55,6 +65,6 @@ function clear() {
   process.stdout.write('\x1b[0f');
 }
 
-function waitingMessage() {
-  console.log(chalk.white.bold('> Waiting for changes...'));
+function showMessage(msg) {
+  console.log(chalk.white.bold(`> ${msg}`));
 }
